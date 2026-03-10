@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Header area */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.tabs {
+    display: flex;
+    gap: 20px;
+}
+
+.tab {
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.tab.active {
+    color: #1890ff;
+    font-weight: 500;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 6px 12px;
+    background: white;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 200px;
+}
+
+/* Table styles */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #fafafa;
+}
+
+th {
+    padding: 16px 20px;
+    text-align: left;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+th:first-child {
+    width: 50px;
+    text-align: center;
+}
+
+td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    color: #666;
+}
+
+td:first-child {
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #fafafa;
+}
+
+/* Checkbox styles */
+.checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Title styles */
+.title-text {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Status labels */
+.status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-pending {
+    background-color: #fff7e6;
+    color: #fa8c16;
+}
+
+.status-approved {
+    background-color: #f6ffed;
+    color: #52c41a;
+}
+
+.status-rejected {
+    background-color: #fff1f0;
+    color: #f5222d;
+}
+
+.status-submitted {
+    background-color: #e6f7ff;
+    color: #1890ff;
+}
+
+/* Top filters */
+.filter-select {
+    padding: 6px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    background: white;
+    min-width: 150px;
+}
+
+.filter-select:hover {
+    border-color: #40a9ff;
+}
+
+.filter-select:focus {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* Action buttons */
+.action-btn {
+    padding: 4px 12px;
+    border: none;
+    background-color: transparent;
+    color: #1890ff;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.action-btn:hover {
+    text-decoration: underline;
+}
+
+/* Statistics */
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #999;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.withdraw-btn {
+    padding: 6px 16px;
+    border: 1.5px solid #9b0000;
+    border-radius: 4px;
+    color: #9b0000;;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    animation: slideDown 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+}
+
+.toast-error {
+    background: #fff2f0;
+    border: 1px solid #ffccc7;
+    color: #cf1322;
+}
+
+.toast-success {
+    background: #f6ffed;
+    border: 1px solid #b7eb8f;
+    color: #389e0d;
+}
+
+.toast-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.toast-error .toast-icon {
+    background: #ff4d4f;
+    color: white;
+}
+
+.toast-success .toast-icon {
+    background: #52c41a;
+    color: white;
+}

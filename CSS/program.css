@@ -1,0 +1,481 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: #fafafa;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    gap: 24px;
+}
+
+/* Top navigation bar */
+.header {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e8e8e8;
+}
+
+.header h1 {
+    color: #2c2c2c;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.header p {
+    color: #888;
+    font-size: 14px;
+}
+
+/* Left filter sidebar */
+.sidebar {
+    width: 280px;
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    height: fit-content;
+    border: 1px solid #e8e8e8;
+    position: sticky;
+    top: 20px;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.filter-header h3 {
+    font-size: 16px;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+.clear-btn {
+    color: #900000;
+    background: none;
+    border: none;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.clear-btn:hover {
+    color: #6a0000;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c2c2c;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filter-title::after {
+    content: '+';
+    font-size: 16px;
+    color: #bbb;
+}
+
+.filter-title.active::after {
+    content: '−';
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #4A90E2;
+}
+
+.checkbox-item label {
+    font-size: 13px;
+    color: #666;
+    cursor: pointer;
+}
+
+/* Right main content area */
+.main-content {
+    flex: 1;
+}
+
+.content-header {
+    background: white;
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #e8e8e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-header h2 {
+    font-size: 16px;
+    color: #2c2c2c;
+    font-weight: 500;
+}
+
+.result-count {
+    font-size: 16px;
+    color: #666;
+}
+
+.result-count span {
+    color: #e24a4a;
+    font-weight: 600;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #f7f7f7;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    border: 1px solid #e8e8e8;
+}
+
+.search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    flex: 1;
+    font-size: 13px;
+    color: #2c2c2c;
+}
+
+.search-bar::before {
+    content: '';
+    margin-right: 0px;
+}
+
+/* Program cards */
+.programs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.program-card {
+    background: white;
+    border-radius: 6px;
+    padding: 16px 20px;
+    border: 1px solid #e8e8e8;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.program-card:hover {
+    background: #fafbfc;
+}
+
+.program-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.program-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.program-details {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    font-size: 13px;
+    color: #888;
+}
+
+/* Apply Now button */
+.apply-btn {
+    padding: 6px 16px;
+    border: 1.5px solid #9b0000;
+    border-radius: 4px;
+    color: #9b0000;;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.apply-btn:hover {
+    background: #8d0000;;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+    backdrop-filter: blur(4px);  /* Frosted glass effect */
+}
+
+.modal-content {
+    background: #fff;
+    padding: 32px 40px;
+    border-radius: 16px;
+    max-width: 520px;
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.modal-content h2 {
+    color: #1a1a1a;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    padding-right: 30px;
+    line-height: 1.4;
+}
+
+.modal-content p {
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+}
+
+.modal-content p strong {
+    color: #333;
+    min-width: 100px;
+    font-weight: 500;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px; 
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+.close-btn {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Popup container */
+.popconfirm-wrapper {
+    position: relative;
+}
+
+.popconfirm {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    padding: 16px;
+    width: 260px;
+    z-index: 100;
+}
+
+/* Small triangle */
+.popconfirm-arrow {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    rotate: 45deg;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.08);
+}
+
+/* Content area */
+.popconfirm-content {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.popconfirm-icon {
+    font-size: 18px;
+}
+
+.popconfirm-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.popconfirm-desc {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Button area */
+.popconfirm-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.pop-btn {
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pop-no {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    color: #333;
+}
+
+.pop-no:hover {
+    border-color: #999;
+}
+
+.pop-yes {
+    background: #a00000;
+    border: none;
+    color: #fff;
+}
+
+.pop-yes:hover {
+    background: #740000;
+}
+
+/* Toast notification box */
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    animation: slideDown 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+}
+
+.toast-error {
+    background: #fff2f0;
+    border: 1px solid #ffccc7;
+    color: #cf1322;
+}
+
+.toast-success {
+    background: #f6ffed;
+    border: 1px solid #b7eb8f;
+    color: #389e0d;
+}
+
+.toast-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.toast-error .toast-icon {
+    background: #ff4d4f;
+    color: white;
+}
+
+.toast-success .toast-icon {
+    background: #52c41a;
+    color: white;
+}
+
+@keyframes slideDown {
+    from { top: -50px; opacity: 0; }
+    to { top: 20px; opacity: 1; }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+
+
+/* Responsive design */
+@media (max-width: 968px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+    }
+}

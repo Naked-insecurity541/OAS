@@ -1,0 +1,187 @@
+/* nav.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Appropriate spacing */
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #8B0000; /* Dark red */
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    background-color: #8B0000; /* Dark red background */
+    color: white; /* White text */
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-btn {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: color 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #8B0000; /* Dark red */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.user-profile:hover {
+    background-color: #f0f0f0;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B0000, #d32f2f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Page content styles */
+.content {
+    width: 97%;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.content h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.content p {
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-left {
+        gap: 30px;
+    }
+    
+    .nav-buttons {
+        gap: 15px;
+    }
+    
+    .user-profile span {
+        display: none; /* Hide text on small screens */
+    }
+}
+/* Add the following code at the end of Navigation.css file */
+
+/* Footer styles */
+.site-footer {
+    background-color: #333; /* Dark gray */
+    color: white;
+    padding: 30px 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #8B0000; /* Dark red */
+    margin-bottom: 10px;
+}
+
+.footer-column p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 0 20px;
+        gap: 30px;
+    }
+    
+    .footer-column {
+        min-width: 150px;
+    }
+    
+    .footer-logo {
+        font-size: 20px;
+    }
+}

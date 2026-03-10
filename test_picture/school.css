@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.user-menu-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.user-menu-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #2563eb;
+    background: white;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-menu-btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.user-avatar {
+    display: inline-block;
+}
+
+/* 下拉菜单 */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 120px;
+    overflow: hidden;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f2f5;
+    color: #2563eb;
+    padding-left: 25px;
+}
+
+
+/* 左侧筛选区 */
+.sidebar {
+    width: 250px;
+    background-color: white;
+    padding: 30px 20px;
+    border-right: 1px solid #e8e8e8;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.sidebar-header button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+.sidebar-header button:hover {
+    color: #2563eb;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.filter-group-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #2563eb;
+    margin-right: 8px;
+    border-radius: 2px;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+    cursor: pointer;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-item label {
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    flex: 1;
+}
+
+.checkbox-item input:checked + label {
+    color: #2563eb;
+    font-weight: 500;
+}
+
+/* 右侧内容区 */
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.content-header {
+    margin-bottom: 25px;
+}
+
+.content-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.content-subtitle {
+    font-size: 14px;
+    color: #999;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* ============ 缩放效果卡片 ============ */
+.card-scale {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片容器样式 - 关键修改 */
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 图片本身的样式 - 新增 */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* 保持比例，裁剪多余部分 */
+    object-position: center;    /* 从中心裁剪 */
+    display: block;             /* 移除 img 底部空白 */
+}
+
+.card-content {
+    padding: 24px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #24292f;
+    margin-bottom: 8px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #57606a;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #f0f2f5;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #57606a;
+    transition: all 0.3s;
+}
+
+.card-scale:hover .tag {
+    background: #e8eaed;
+}
+
+.card-arrow {
+    display: inline-block;
+    color: #0969da;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card-scale:hover .card-arrow {
+    transform: translateX(5px);
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e8e8e8;
+        position: relative;
+        top: auto;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .content-title {
+        font-size: 20px;
+    }
+}
+
+/* 其他职位卡片样式（如果需要的话） */
+.job-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #000;
+}
+
+.job-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.job-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.meta-badge {
+    background-color: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.job-description {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #666;
+    margin-top: 15px;
+}
+
+.job-description li {
+    margin-left: 20px;
+    margin-bottom: 8px;
+}

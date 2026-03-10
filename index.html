@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <!---<meta name="viewport" content="width=device-width, initial-scale=1.0">--->
+    <title>OAS Student</title>
+    <link rel="stylesheet" href="CSS/nav.css">
+    <style>
+        .start-btn:hover {
+            background-color: rgb(255, 255, 255)!important;
+            color: rgb(187, 1, 1) !important;
+        }
+        .content {
+            flex: 1;
+            /* Ensure content area fills entire width */
+            width: 100%;
+            margin: 0;
+            padding-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">OAS</a>
+            <div class="nav-buttons">
+                <a href="school.php" class="nav-btn">View Colleges</a>
+                <a href="My_applications.php" class="nav-btn">My Application</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="profile2.php" class="user-profile">
+                <div class="avatar"></div>
+                <span>Profile</span>
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Page content placeholder -->
+        <div class="content" style="
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pic/Cover.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        ">
+        <a href="school.php" class="start-btn" style="
+            color: rgb(255, 255, 255);
+            background: transparent;
+            padding: 15px 30px;
+            font-size: 35px;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        ">LET's START !</a>
+    </div>
+    <!-- Add footer before body closing tag -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-logo">OAS</h3>
+                <p>Online Applying System</p>
+                <p>Made by Group11</p>
+            </div>
+            <div class="footer-column">
+                <p>&nbsp;</p>
+                <p>Database Management Systems</p>
+                <p>Section 1003</p>
+                <p>Instructor: Dr. Tianhui MENG</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
