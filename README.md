@@ -16,6 +16,11 @@ OAS (Online Application System) is a complete online application platform that a
 - Upload certificates, transcripts, and other documents (supports PDF, DOC, DOCX, ZIP)
 - Manage personal information (basic info, educational background, language scores, etc.)
 - Withdraw applications
+<img width="3068" height="1702" alt="image" src="https://github.com/user-attachments/assets/41ed6fd9-5d9b-49e9-a0d0-0d0ae7a4b9ba" />
+<img width="3065" height="1738" alt="image" src="https://github.com/user-attachments/assets/10134aad-c6a0-45f5-b3be-6f6488043baa" />
+<img width="3026" height="1712" alt="image" src="https://github.com/user-attachments/assets/58fd7155-06a2-4f85-8607-60ce736812c2" />
+<img width="3010" height="1765" alt="image" src="https://github.com/user-attachments/assets/8f0e479c-45e2-4ca8-9605-ccec8de7576b" />
+<img width="3090" height="1062" alt="image" src="https://github.com/user-attachments/assets/2c3c1bad-2e66-4a6a-ba7c-d91a7c6b7967" />
 
 ### Admission Officer Features
 - View all programs for assigned universities
@@ -23,6 +28,7 @@ OAS (Online Application System) is a complete online application platform that a
 - Review applications (approve/reject)
 - View student detailed information (GPA, TOEFL, IELTS scores, etc.)
 - Download student uploaded files (individual or batch ZIP)
+<img width="3051" height="1721" alt="image" src="https://github.com/user-attachments/assets/e855d908-e0b4-456c-81cb-926ca7c95ba1" />
 
 ### Administrator Features
 - Manage university information (CRUD operations)
@@ -30,6 +36,8 @@ OAS (Online Application System) is a complete online application platform that a
 - Manage admission officer accounts
 - Review admission officer registration applications
 - View all application statistics
+<img width="3081" height="1741" alt="image" src="https://github.com/user-attachments/assets/f72786eb-3c29-458d-9d17-b656fa3dab26" />
+
 
 ## Project Structure
 
@@ -354,4 +362,5 @@ This project is a course project (Database Management Systems, Section 1003), de
 - **Course**: Database Management Systems
 - **Section**: 1003
 - **Instructor**: Dr. Tianhui MENG
+
 - **Development Group**: Group11
